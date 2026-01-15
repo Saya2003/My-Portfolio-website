@@ -29,6 +29,7 @@ body, html{
     color: #fff;
     background-color: #5a4a6f;
     overflow-x: hidden;
+    font-size: 16px;
 
 }
 h1{
@@ -44,7 +45,7 @@ h2{
     color:#fff;
 }
 h3{
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 900;
 }
 h4{
@@ -59,7 +60,7 @@ p{
     font-family: 'Open Sans', sans-serif;
 }
 p.lead{
-    font-size: 16px;
+    font-size: 20px;
     margin: 12px 0 0;
     line-height: 24px;
     font-family: 'Open Sans', sans-serif;
@@ -123,7 +124,7 @@ ul, ol{
 }
 #art-menu a.navbar-brand {
     text-transform: uppercase;
-    font-size: 22px;
+    font-size: 28px;
     color: #fff;
     font-weight: 900;
 }
@@ -133,7 +134,7 @@ ul, ol{
 #art-menu.navbar-default .navbar-nav > li > a {
     text-transform: uppercase;
     color: #FFF;
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 1px;
 }
 .on {
@@ -215,7 +216,7 @@ ul, ol{
 }
 #features h3 {
     margin-top: 15px;
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 7px;
 }
 #features .slider-layer {
@@ -289,7 +290,7 @@ ul, ol{
 #contact #contact-form input[type="text"], #contact #contact-form  textarea {
     color:#7F8289;
     background:#26292E;
-    font-size: 12px;
+    font-size: 16px;
     padding: 15px 0;
     width: 100%;
     padding-left:10px;
@@ -312,7 +313,7 @@ ul, ol{
 }
 #contact-form input[type="text"], #contact-form  textarea {
     color: #7F8289;
-    font-size: 12px;
+    font-size: 16px;
     padding: 15px 0;
     width: 100%;
     padding-left:10px;
@@ -342,7 +343,7 @@ ul, ol{
     padding:14px 20px;
     line-height:14px;
     cursor:pointer;
-    font-size:13px;
+    font-size:16px;
     color:#fff;
     float:right;
     background:#26292E;
@@ -353,12 +354,12 @@ ul, ol{
 .error_message {
     text-align:center;
     margin-bottom:30px;
-    font-size:15px;
+    font-size:18px;
     color:#fff;
 }
 #success_page h3{
     text-align:center;
-    font-size:18px;
+    font-size:24px;
 }
 #success_page p {
     color:#fff;
@@ -474,7 +475,7 @@ ul, ol{
     margin: 0;
     padding: 10px 0;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     color: #fff;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -507,7 +508,7 @@ ul, ol{
 blockquote {
     padding: 10px 20px;
     margin: 0 0 20px;
-    font-size: 17.5px;
+    font-size: 22px;
     border:none;
 }
 a.fa.fa-angle-down {
@@ -571,7 +572,7 @@ a.fa.fa-angle-down:hover{
 .footer-logo a{
     color:#FFFFFF;
     font-weight:700;
-    font-size: 16px;
+    font-size: 20px;
 }
 #footer .social-icons ul li a {
     background-color: rgba(0,0,0,.2);
@@ -590,7 +591,7 @@ a.fa.fa-angle-down:hover{
     width: 36px;
     line-height: 36px;
     display: block;
-    font-size: 16px;
+    font-size: 20px;
     opacity: 0.8;
 }
 .social-icons .icon-sm:hover  {
@@ -633,6 +634,7 @@ a.fa.fa-angle-down:hover{
         color: #fff;
         overflow-x: hidden;
         background: #5a4a6f;
+        font-size: 16px;
     }
     h1{
         text-transform: none;
@@ -647,7 +649,7 @@ a.fa.fa-angle-down:hover{
         color:#fff;
     }
     h3{
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 900;
     }
     h4{
@@ -662,7 +664,7 @@ a.fa.fa-angle-down:hover{
         font-family: 'Open Sans', sans-serif;
     }
     p.lead{
-        font-size: 16px;
+        font-size: 20px;
         margin: 12px 0 0;
         line-height: 24px;
         font-family: 'Open Sans', sans-serif;
@@ -715,7 +717,7 @@ a.fa.fa-angle-down:hover{
     }
     #art-menu a.navbar-brand {
         text-transform: uppercase;
-        font-size: 22px;
+        font-size: 28px;
         color: #fff;
         font-weight: 900;
     }
@@ -725,7 +727,7 @@ a.fa.fa-angle-down:hover{
     #art-menu.navbar-default .navbar-nav > li > a {
         text-transform: uppercase;
         color: #FFF;
-        font-size: 12px;
+        font-size: 16px;
         letter-spacing: 1px;
     }
     .on {
@@ -825,7 +827,7 @@ a.fa.fa-angle-down:hover{
     }
     #features h3 {
         margin-top: 15px;
-        font-size: 18px;
+        font-size: 24px;
         margin-bottom: 7px;
     }
     #features .slider-layer {
@@ -883,7 +885,7 @@ a.fa.fa-angle-down:hover{
     }
     #contact #contact-form input[type="text"], #contact #contact-form input[type="email"], #contact #contact-form  textarea {
         color:#fff;
-        font-size: 12px;
+        font-size: 16px;
         padding: 15px 0;
         width: 100%;
         padding-left:10px;
@@ -908,7 +910,7 @@ a.fa.fa-angle-down:hover{
     }
     #contact-form input[type="text"], #contact-form input[type="email"], #contact-form  textarea {
         color: #7F8289;
-        font-size: 12px;
+        font-size: 16px;
         padding: 15px 0;
         width: 100%;
         padding-left:10px;
@@ -951,7 +953,7 @@ a.fa.fa-angle-down:hover{
     height: 40px;
     width: 140px;
         cursor:pointer;
-        font-size:13px;
+        font-size:16px;
         color:#fff;
         float:none;
     background:#f269d0;
@@ -967,13 +969,13 @@ a.fa.fa-angle-down:hover{
     .error_message {
         text-align:center;
         margin-bottom:30px;
-        font-size:15px;
+        font-size:18px;
         color:#fff;
     }
     .success_message {
         text-align:center;
         margin-bottom:30px;
-        font-size:15px;
+        font-size:18px;
         color:#4CAF50;
         background: rgba(76, 175, 80, 0.1);
         padding: 15px;
@@ -982,7 +984,7 @@ a.fa.fa-angle-down:hover{
     }
     #success_page h3{
         text-align:center;
-        font-size:18px;
+        font-size:24px;
     }
     #success_page p {
         color:#fff;
@@ -1098,7 +1100,7 @@ a.fa.fa-angle-down:hover{
         margin: 0;
         padding: 10px 0;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 18px;
         color: #fff;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -1131,7 +1133,7 @@ a.fa.fa-angle-down:hover{
     blockquote {
         padding: 10px 20px;
         margin: 0 0 20px;
-        font-size: 17.5px;
+        font-size: 22px;
         border:none;
     }
     a.fa.fa-angle-down {
@@ -1195,7 +1197,7 @@ a.fa.fa-angle-down:hover{
     .footer-logo a{
         color:#FFFFFF;
         font-weight:700;
-        font-size: 16px;
+        font-size: 20px;
     }
     #footer .social-icons ul li a {
         background-color: rgba(0,0,0,.2);
@@ -1214,7 +1216,7 @@ a.fa.fa-angle-down:hover{
         width: 36px;
         line-height: 36px;
         display: block;
-        font-size: 16px;
+        font-size: 20px;
         opacity: 0.8;
     }
     .social-icons .icon-sm:hover  {
@@ -1358,14 +1360,14 @@ a.fa.fa-angle-down:hover{
 
 .modal-content h3 {
     color: #de5ead;
-    font-size: 24px;
+    font-size: 28px;
     margin-top: 0;
     margin-bottom: 15px;
 }
 
 .modal-content p {
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 25px;
     line-height: 1.6;
 }
@@ -1375,7 +1377,7 @@ a.fa.fa-angle-down:hover{
     color: #fff;
     border: none;
     padding: 12px 30px;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
