@@ -243,6 +243,11 @@ ul, ol{
 .progress-bar-cool-grey {
     background-color: #78909C;
 }
+.progress-bar {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bold;
+}
 .joinjour {
     width:100%;
   margin-bottom:20px;
@@ -817,6 +822,11 @@ a.fa.fa-angle-down:hover{
     }
     .progress-bar-cool-grey {
         background-color: #78909C;
+    }
+    .progress-bar {
+        font-size: 15px;
+        line-height: 30px;
+        font-weight: bold;
     }
     #features {
         text-align: center;
