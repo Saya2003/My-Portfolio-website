@@ -64,7 +64,7 @@ export default function Services() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-slate-900">Services</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-slate-800 font-medium max-w-2xl mx-auto">
             I design and develop responsive, modern and user-focused websites that help individuals and businesses establish a strong professional presence online.
           </p>
         </motion.div>
