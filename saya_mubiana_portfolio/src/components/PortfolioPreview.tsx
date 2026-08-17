@@ -17,16 +17,16 @@ export default function PortfolioPreview() {
   const allSites = [...portfolioSites, ...businessSites];
 
   return (
-    <section id="portfolio-preview" className="py-20 md:py-28">
+    <section id="portfolio-preview" className="py-12 md:py-16 dotted-grid">
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">My Work</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">A selection of websites I have designed and developed for clients.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">My Work</h2>
+          <p className="text-slate-900 font-semibold max-w-2xl mx-auto">A selection of websites I have designed and developed for clients.</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

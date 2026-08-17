@@ -6,7 +6,7 @@ const PHOTO_URL = 'https://images.fillout.com/orgid-813188/flowpublicid-default/
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-36 md:pb-28 overflow-hidden dotted-grid">
+    <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden dotted-grid">
       {/* Gradient blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />

@@ -99,12 +99,12 @@
 }
 
 @layer components {
-  /* Ultra-soft blush pink polka dot background for high text readability */
+  /* Ultra-soft whisper polka dot background for 100% crystal clear text readability */
   .dotted-grid {
-    background-color: #faf0f2;
+    background-color: #fcf4f6;
     background-image: 
-      radial-gradient(circle, rgba(185, 140, 155, 0.22) 1.5px, transparent 1.5px),
-      radial-gradient(circle, rgba(185, 140, 155, 0.22) 1.5px, #faf0f2 1.5px);
+      radial-gradient(circle, rgba(175, 125, 140, 0.08) 1.2px, transparent 1.2px),
+      radial-gradient(circle, rgba(175, 125, 140, 0.08) 1.2px, #fcf4f6 1.2px);
     background-size: 28px 28px;
     background-position: 0 0, 14px 14px;
   }

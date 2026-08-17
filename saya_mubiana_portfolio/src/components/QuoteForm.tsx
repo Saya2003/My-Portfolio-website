@@ -38,19 +38,19 @@ export default function QuoteForm() {
   };
 
   return (
-    <section id="quote" className="py-20 md:py-28 relative overflow-hidden dotted-grid">
+    <section id="quote" className="py-12 md:py-16 relative overflow-hidden dotted-grid">
       <div className="absolute -top-40 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">{"Let's Build Something"}</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">{"Let's Build Something"}</h2>
+          <p className="text-slate-900 font-semibold max-w-xl mx-auto">
             Have a website idea, business or digital system that you want to bring to life? Tell me what you need, and let me turn your idea into a professional digital solution.
           </p>
         </motion.div>

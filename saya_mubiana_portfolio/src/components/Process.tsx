@@ -12,54 +12,54 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-20 md:py-28">
+    <section id="process" className="py-12 md:py-16 dotted-grid">
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">My Development Process</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">A structured approach from idea to delivery.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">My Development Process</h2>
+          <p className="text-slate-900 font-semibold max-w-2xl mx-auto">A structured approach from idea to delivery.</p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-0">
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
-              className="flex gap-6 group"
+              className="flex gap-5 group"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
             >
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-sm font-bold shrink-0 shadow-md shadow-primary/20 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-md shadow-primary/20 group-hover:scale-110 transition-transform duration-300">
                   {s.num}
                 </div>
-                {i < steps.length - 1 && <div className="w-px flex-1 bg-gradient-to-b from-primary/30 to-border" />}
+                {i < steps.length - 1 && <div className="w-px flex-1 bg-gradient-to-b from-primary/30 to-border/60" />}
               </div>
-              <div className="pb-10">
-                <h3 className="font-bold text-lg tracking-wide">{s.title}</h3>
-                <p className="text-muted-foreground text-sm mt-1">{s.desc}</p>
+              <div className="pb-5 pt-1">
+                <h3 className="font-extrabold text-slate-900 text-base tracking-wide">{s.title}</h3>
+                <p className="text-slate-900 text-sm font-semibold mt-1 leading-relaxed">{s.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-16 max-w-3xl mx-auto bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/10"
+          className="mt-10 max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-xl font-bold mb-4">Ownership</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-3">Your website belongs to you. Upon full payment, clients receive ownership of their completed website and project-specific source code.</p>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-3">Where possible, project repositories and deployment accounts are created under the client&#39;s ownership. Clients maintain control of their own project resources while the developer may be added as a collaborator for development and maintenance.</p>
-          <p className="text-muted-foreground text-sm leading-relaxed">Pre-existing reusable development tools, frameworks, libraries, components and general development resources remain the property of the developer.</p>
+          <h3 className="text-xl font-extrabold text-slate-900 mb-3">Ownership</h3>
+          <p className="text-slate-900 text-sm font-semibold leading-relaxed mb-3">Your website belongs to you. Upon full payment, clients receive ownership of their completed website and project-specific source code.</p>
+          <p className="text-slate-900 text-sm font-semibold leading-relaxed mb-3">Where possible, project repositories and deployment accounts are created under the client&#39;s ownership. Clients maintain control of their own project resources while the developer may be added as a collaborator for development and maintenance.</p>
+          <p className="text-slate-900 text-sm font-semibold leading-relaxed">Pre-existing reusable development tools, frameworks, libraries, components and general development resources remain the property of the developer.</p>
         </motion.div>
       </div>
     </section>

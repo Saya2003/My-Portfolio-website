@@ -18,39 +18,39 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 md:py-28">
+    <section id="faq" className="py-12 md:py-16 dotted-grid">
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-3">Frequently Asked Questions</h2>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto divide-y divide-border">
+        <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm divide-y divide-slate-200/60">
           {faqs.map((f, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
+              transition={{ delay: i * 0.04 }}
             >
               <button
-                className="w-full flex items-center justify-between py-5 text-left group"
+                className="w-full flex items-center justify-between py-3.5 text-left group"
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
               >
-                <span className="font-semibold text-sm pr-4 group-hover:text-primary transition-colors">{f.q}</span>
+                <span className="font-extrabold text-sm text-slate-900 pr-4 group-hover:text-primary transition-colors">{f.q}</span>
                 <motion.div animate={{ rotate: openIdx === i ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                  <ChevronDown className="w-4 h-4 shrink-0 text-muted-foreground" />
+                  <ChevronDown className="w-4 h-4 shrink-0 text-slate-500" />
                 </motion.div>
               </button>
               <AnimatePresence>
                 {openIdx === i && (
                   <motion.p
-                    className="text-sm text-muted-foreground pb-5 -mt-1"
+                    className="text-sm text-slate-900 font-semibold pb-4 -mt-1 leading-relaxed"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
@@ -65,19 +65,19 @@ export default function FAQ() {
         </div>
 
         <motion.div
-          className="max-w-2xl mx-auto mt-12 space-y-6 text-sm text-muted-foreground"
+          className="max-w-3xl mx-auto mt-8 bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-4 text-sm text-slate-900 font-semibold"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
           <div>
-            <h4 className="font-semibold text-foreground mb-1">Cancellation Policy</h4>
-            <p>If the client cancels a project after development has commenced, the client may be responsible for payment for work completed up to the cancellation date.</p>
+            <h4 className="font-extrabold text-slate-900 mb-1">Cancellation Policy</h4>
+            <p className="leading-relaxed">If the client cancels a project after development has commenced, the client may be responsible for payment for work completed up to the cancellation date.</p>
           </div>
           <div>
-            <h4 className="font-semibold text-foreground mb-1">Acceptance Policy</h4>
-            <p>Once the developer notifies the client that the website is ready for final review, the client must review the website and communicate any final issues within 5 business days. After that, if there are no legitimate outstanding issues, the project is considered ready for handover.</p>
+            <h4 className="font-extrabold text-slate-900 mb-1">Acceptance Policy</h4>
+            <p className="leading-relaxed">Once the developer notifies the client that the website is ready for final review, the client must review the website and communicate any final issues within 5 business days. After that, if there are no legitimate outstanding issues, the project is considered ready for handover.</p>
           </div>
         </motion.div>
       </div>

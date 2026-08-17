@@ -21,21 +21,21 @@ const included = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden dotted-grid">
+    <section id="pricing" className="py-12 md:py-16 relative overflow-hidden dotted-grid">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/5 to-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-slate-900">Pricing</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">Transparent pricing with clear scope definition before development begins.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">Pricing</h2>
+          <p className="text-slate-900 font-semibold max-w-2xl mx-auto">Transparent pricing with clear scope definition before development begins.</p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 items-stretch">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 items-stretch">
           {plans.map((p, i) => (
             <motion.div
               key={p.title}
@@ -45,7 +45,7 @@ export default function Pricing() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <Card className={`relative h-full min-h-[360px] md:min-h-[380px] flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 ${p.featured ? 'border-primary bg-white/95 shadow-xl ring-1 ring-primary/30' : 'border-slate-200/80 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'}`}>
+              <Card className={`relative h-full min-h-[340px] md:min-h-[360px] flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 ${p.featured ? 'border-primary bg-white/95 shadow-xl ring-1 ring-primary/30' : 'border-slate-200/80 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'}`}>
                 {p.featured && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md shadow-primary/30">
                     Popular
@@ -55,9 +55,9 @@ export default function Pricing() {
                   <CardHeader className="text-center p-0 mb-4">
                     <CardTitle className="text-xl font-bold text-slate-900">{p.title}</CardTitle>
                     <p className="text-3xl font-extrabold mt-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{p.price}</p>
-                    {p.sub && <p className="text-xs text-slate-500 font-medium mt-1">{p.sub}</p>}
+                    {p.sub && <p className="text-xs text-slate-600 font-semibold mt-1">{p.sub}</p>}
                   </CardHeader>
-                  <p className="text-sm text-slate-600 text-center leading-relaxed mt-4">{p.desc}</p>
+                  <p className="text-sm text-slate-900 font-semibold text-center leading-relaxed mt-4">{p.desc}</p>
                 </div>
                 <div className="mt-8 pt-4">
                   <a href="#quote">
@@ -72,20 +72,20 @@ export default function Pricing() {
         </div>
 
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <h3 className="text-xl font-bold mb-6 text-center text-slate-900">Important Information</h3>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <h3 className="text-xl font-extrabold mb-6 text-center text-slate-900">Important Information</h3>
+          <div className="grid sm:grid-cols-2 gap-5">
             {included.map((item) => (
               <div key={item.q} className="flex gap-3">
                 <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-sm text-slate-900">{item.q}</p>
-                  <p className="text-sm text-slate-600">{item.a}</p>
+                  <p className="font-extrabold text-sm text-slate-900">{item.q}</p>
+                  <p className="text-sm text-slate-900 font-semibold leading-relaxed mt-1">{item.a}</p>
                 </div>
               </div>
             ))}
