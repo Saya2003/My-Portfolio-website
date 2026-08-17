@@ -99,14 +99,12 @@
 }
 
 @layer components {
-  /* Ultra-soft whisper polka dot background for 100% crystal clear text readability */
+  /* Blush pink square dot grid pattern throughout the application */
   .dotted-grid {
-    background-color: #fcf4f6;
-    background-image: 
-      radial-gradient(circle, rgba(175, 125, 140, 0.08) 1.2px, transparent 1.2px),
-      radial-gradient(circle, rgba(175, 125, 140, 0.08) 1.2px, #fcf4f6 1.2px);
-    background-size: 28px 28px;
-    background-position: 0 0, 14px 14px;
+    background-color: #fdf2f5;
+    background-image: radial-gradient(circle, rgba(214, 168, 184, 0.6) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    background-position: 0 0;
   }
 
   /* Soft contact form fields: rounded, translucent, clean */
