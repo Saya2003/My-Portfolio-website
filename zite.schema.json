@@ -1,0 +1,216 @@
+{
+  "tables": [
+    {
+      "id": "tnVjz5s6dAh",
+      "sdkName": "quoteRequests",
+      "name": "Quote Requests",
+      "primaryFieldId": "frrR4mPv1DZ",
+      "fields": [
+        {
+          "id": "frrR4mPv1DZ",
+          "sdkName": "name",
+          "definition": {
+            "name": "Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feELo2gSJKX",
+          "sdkName": "email",
+          "definition": {
+            "name": "Email",
+            "type": "email",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuhkyiytXza",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "phone_number",
+            "template": {}
+          }
+        },
+        {
+          "id": "foMgNxakVzY",
+          "sdkName": "business",
+          "definition": {
+            "name": "Business",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fnnE7PcHpqv",
+          "sdkName": "projectType",
+          "definition": {
+            "name": "Project Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "abi5",
+                  "label": "Portfolio Website",
+                  "color": "purple"
+                },
+                {
+                  "value": "p6jR",
+                  "label": "Professional Business Website",
+                  "color": "orange"
+                },
+                {
+                  "value": "d7Fo",
+                  "label": "Custom Web Solution",
+                  "color": "blue"
+                },
+                {
+                  "value": "5zQM",
+                  "label": "Other",
+                  "color": "gray"
+                },
+                {
+                  "value": "5Jzy",
+                  "label": "business",
+                  "color": "red"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fge6XB9ZQp6",
+          "sdkName": "projectDescription",
+          "definition": {
+            "name": "Project Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fj1QwVdHSoW",
+          "sdkName": "featuresNeeded",
+          "definition": {
+            "name": "Features Needed",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f22Tiip49gb",
+          "sdkName": "hasDomain",
+          "definition": {
+            "name": "Has Domain",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "2AGN",
+                  "label": "Yes",
+                  "color": "purple"
+                },
+                {
+                  "value": "pubS",
+                  "label": "No",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fgBEvMoBLmo",
+          "sdkName": "hasBranding",
+          "definition": {
+            "name": "Has Branding",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "17jB",
+                  "label": "Yes",
+                  "color": "purple"
+                },
+                {
+                  "value": "aW1W",
+                  "label": "No",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fv1KCLANZRE",
+          "sdkName": "desiredCompletionDate",
+          "definition": {
+            "name": "Desired Completion Date",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvToZBASgSN",
+          "sdkName": "budgetRange",
+          "definition": {
+            "name": "Budget Range",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmGgfYxcN1E",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "9jKr",
+                  "label": "New",
+                  "color": "blue"
+                },
+                {
+                  "value": "1ZWr",
+                  "label": "Reviewed",
+                  "color": "yellow"
+                },
+                {
+                  "value": "sZvM",
+                  "label": "Quoted",
+                  "color": "green"
+                },
+                {
+                  "value": "mrMt",
+                  "label": "Declined",
+                  "color": "red"
+                }
+              ],
+              "defaultValue": "9jKr",
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "frrJm9EcEuS",
+          "sdkName": "submittedAt",
+          "definition": {
+            "name": "Submitted At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

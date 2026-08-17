@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Auto-restored theme variables */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --shadow-x: 0px;
+    --shadow-y: 1px;
+    --shadow-blur: 4px;
+    --shadow-spread: 0px;
+    --shadow-opacity: 0.2;
+    --shadow-color: #000000;
+    --shadow-2xs: var(--shadow-x) var(--shadow-y) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-xl: calc(var(--shadow-x) * 6) calc(var(--shadow-y) * 6) calc(var(--shadow-blur) * 7) calc(var(--shadow-spread) - 5px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    --shadow-2xl: calc(var(--shadow-x) * 8) calc(var(--shadow-y) * 8) calc(max(0px, var(--shadow-blur) * 9 - 8px)) calc(var(--shadow-spread) - 12px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 250%), transparent);
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --background: 280 20% 99%;
+    --foreground: 270 30% 12%;
+    --card: 280 25% 97%;
+    --card-foreground: 270 30% 12%;
+    --popover: 280 20% 99%;
+    --popover-foreground: 270 30% 12%;
+    --primary: 300 60% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 30% 94%;
+    --secondary-foreground: 270 30% 12%;
+    --muted: 270 20% 95%;
+    --muted-foreground: 270 10% 45%;
+    --accent: 260 55% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 300 60% 48%;
+
+    --radius: 0.625rem;
+
+    --chart-1: 300 60% 48%;
+    --chart-2: 260 55% 60%;
+    --chart-3: 280 40% 70%;
+    --chart-4: 320 50% 55%;
+    --chart-5: 240 50% 65%;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --background: 270 25% 6%;
+    --foreground: 270 15% 94%;
+    --card: 270 22% 9%;
+    --card-foreground: 270 15% 94%;
+    --popover: 270 22% 9%;
+    --popover-foreground: 270 15% 94%;
+    --primary: 300 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 20% 14%;
+    --secondary-foreground: 270 15% 94%;
+    --muted: 270 20% 14%;
+    --muted-foreground: 270 12% 55%;
+    --accent: 260 55% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 18% 16%;
+    --input: 270 18% 16%;
+    --ring: 300 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden dotted-grid;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Soft blush pink polka dot grid pattern */
+  .dotted-grid {
+    background-color: #faf0f2;
+    background-image: 
+      radial-gradient(circle, #85747c 1.5px, transparent 1.5px),
+      radial-gradient(circle, #85747c 1.5px, #faf0f2 1.5px);
+    background-size: 28px 28px;
+    background-position: 0 0, 14px 14px;
+  }
+
+  /* Soft contact form fields: rounded, translucent, clean */
+  .form-field {
+    @apply h-11 rounded-[10px] border-white/40 bg-white/60 shadow-none backdrop-blur-sm transition-colors placeholder:text-muted-foreground/60 focus:border-primary/40 focus:bg-white/90 focus:ring-primary/30;
+  }
+
+  .form-textarea {
+    @apply rounded-[10px] border-white/40 bg-white/60 shadow-none backdrop-blur-sm transition-colors placeholder:text-muted-foreground/60 focus:border-primary/40 focus:bg-white/90 focus:ring-primary/30;
+  }
+}

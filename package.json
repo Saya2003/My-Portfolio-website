@@ -1,0 +1,17 @@
+{
+  "name": "professional-web-development",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --workspace @project/saya-mubiana-portfolio"
+  },
+  "workspaces": [
+    "saya_mubiana_portfolio",
+    "packages"
+  ],
+  "dependencies": {
+    "zitejs": "0.9.112"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

@@ -1,0 +1,97 @@
+import { Check } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@project/components/ui/card';
+import { Button } from '@project/components/ui/button';
+import { motion } from 'framer-motion';
+
+const plans = [
+  { title: 'Portfolio Website', price: 'From $93', sub: 'N$1,502.75', desc: 'For individuals and professionals who want a modern online portfolio.', featured: false },
+  { title: 'Professional Website', price: 'From $280', sub: 'N$4,524.41', desc: 'For businesses and organisations that need a professional online presence.', featured: true },
+  { title: 'Custom Modules', price: 'From $155', sub: 'N$2,504.58', desc: 'For additional functionality such as booking systems, dashboards, invoicing and more.', featured: false },
+  { title: 'Custom Web Applications', price: 'Custom Quote', sub: '', desc: 'Complex platforms and management systems are individually quoted according to their requirements.', featured: false },
+];
+
+const included = [
+  { q: "What's included?", a: 'Each project includes only the features and services specified in the agreed project scope.' },
+  { q: 'Need something extra?', a: 'Additional functionality can be added for an additional fee.' },
+  { q: 'Who provides the content?', a: 'The client provides the required business information, images, logos, written content and other materials unless content creation has been separately agreed upon.' },
+  { q: 'What about domains?', a: 'Domain registration and renewal fees are separate unless specifically included in your quotation.' },
+  { q: 'What about hosting?', a: 'Basic deployment is included where applicable. Third-party hosting, premium services, APIs and other external costs may be charged separately.' },
+  { q: 'Do you provide maintenance?', a: 'Yes. Ongoing maintenance and support can be arranged separately after project completion.' },
+];
+
+export default function Pricing() {
+  return (
+    <section id="pricing" className="py-20 md:py-28 relative overflow-hidden dotted-grid">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/5 to-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-slate-900">Pricing</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">Transparent pricing with clear scope definition before development begins.</p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 items-stretch">
+          {plans.map((p, i) => (
+            <motion.div
+              key={p.title}
+              className="h-full"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <Card className={`relative h-full min-h-[360px] md:min-h-[380px] flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 ${p.featured ? 'border-primary bg-white/95 shadow-xl ring-1 ring-primary/30' : 'border-slate-200/80 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'}`}>
+                {p.featured && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md shadow-primary/30">
+                    Popular
+                  </div>
+                )}
+                <div>
+                  <CardHeader className="text-center p-0 mb-4">
+                    <CardTitle className="text-xl font-bold text-slate-900">{p.title}</CardTitle>
+                    <p className="text-3xl font-extrabold mt-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{p.price}</p>
+                    {p.sub && <p className="text-xs text-slate-500 font-medium mt-1">{p.sub}</p>}
+                  </CardHeader>
+                  <p className="text-sm text-slate-600 text-center leading-relaxed mt-4">{p.desc}</p>
+                </div>
+                <div className="mt-8 pt-4">
+                  <a href="#quote">
+                    <Button variant={p.featured ? 'default' : 'outline'} className={`w-full rounded-xl py-3 font-semibold ${p.featured ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/25' : 'border-slate-200 hover:border-primary text-slate-900 bg-white'}`} size="lg">
+                      Get Started
+                    </Button>
+                  </a>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <h3 className="text-xl font-bold mb-6 text-center text-slate-900">Important Information</h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {included.map((item) => (
+              <div key={item.q} className="flex gap-3">
+                <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-sm text-slate-900">{item.q}</p>
+                  <p className="text-sm text-slate-600">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
