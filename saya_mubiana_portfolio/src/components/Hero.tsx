@@ -51,13 +51,13 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a href="#portfolio-preview">
-                <Button size="lg" className="gap-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-sm rounded-xl px-6 font-semibold transition-all">
-                  View My Work <ArrowRight className="w-4 h-4 text-slate-700" />
+                <Button size="lg" className="gap-2.5 bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-sm rounded-xl px-7 py-3.5 h-12 text-base font-semibold transition-all hover:border-slate-300">
+                  View My Work <ArrowRight className="w-4.5 h-4.5 text-slate-700" />
                 </Button>
               </a>
               <a href="#quote">
-                <Button size="lg" className="gap-2 bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 shadow-lg shadow-primary/25 rounded-xl px-6 font-semibold transition-all">
-                  Get a Quote <ArrowRight className="w-4 h-4 text-white" />
+                <Button size="lg" className="gap-2.5 bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 shadow-lg shadow-primary/25 rounded-xl px-7 py-3.5 h-12 text-base font-semibold transition-all">
+                  Get a Quote <ArrowRight className="w-4.5 h-4.5 text-white" />
                 </Button>
               </a>
             </motion.div>
