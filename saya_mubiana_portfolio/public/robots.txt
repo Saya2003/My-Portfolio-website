@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sayamubianaa.netlify.app/sitemap.xml

@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
 const portfolioSites = [
   { title: 'Lindah Mulisa', type: 'Portfolio Website', url: 'https://lindahmulisa.netlify.app' },
-  { title: 'Watanavi Kaposambo', type: 'Portfolio Website', url: 'https://watanavikaposambo.netlify.app/' },
   { title: 'Hope Mewess', type: 'Portfolio Website', url: 'https://hopemewess.netlify.app/' },
 ];
 

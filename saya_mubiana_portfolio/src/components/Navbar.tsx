@@ -93,6 +93,9 @@ export default function Navbar() {
           className="md:hidden relative"
           onClick={() => setOpen(!open)}
           whileTap={{ scale: 0.9 }}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
         >
           <AnimatePresence mode="wait">
             {open ? (
@@ -116,6 +119,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
+            id="mobile-menu"
             className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-4 pb-4 pt-2 space-y-1">

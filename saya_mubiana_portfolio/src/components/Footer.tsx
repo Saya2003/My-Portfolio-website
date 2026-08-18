@@ -1,4 +1,4 @@
-import { Mail, Globe, Phone, ArrowUpRight, Heart, Code2 } from 'lucide-react';
+import { Mail, Globe, Phone, Heart, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Popover, PopoverContent, PopoverTrigger } from '@project/components/ui/popover';
@@ -66,13 +66,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground mt-2 max-w-xs mx-auto md:mx-0">
               Building professional websites and digital solutions for individuals, businesses and organisations.
             </p>
-            <motion.a
-              href="#quote"
-              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:text-accent transition-colors group"
-              whileHover={{ x: 4 }}
-            >
-              Start a project <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-            </motion.a>
+
           </motion.div>
 
           {/* Quick links */}

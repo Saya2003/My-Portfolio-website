@@ -77,7 +77,11 @@ export default function Hero() {
                 <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[460px] lg:h-[460px] overflow-hidden">
                   <img
                     src={PHOTO_URL}
-                    alt="Saya Mubiana"
+                    alt="Saya Mubiana, freelance software developer and web developer"
+                    width={460}
+                    height={460}
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
