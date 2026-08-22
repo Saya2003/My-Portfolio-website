@@ -32,7 +32,6 @@ export default function Pricing() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">Pricing</h2>
-          <p className="text-slate-900 font-semibold max-w-2xl mx-auto">Transparent pricing with clear scope definition before development begins.</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 items-stretch">

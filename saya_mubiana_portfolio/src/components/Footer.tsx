@@ -1,6 +1,9 @@
-import { Mail, Globe, Heart, Code2 } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Globe, Copy, Check, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Popover, PopoverContent, PopoverTrigger } from '@project/components/ui/popover';
+import { toast } from 'sonner';
 
 const navLinks = [
   { label: 'Services', href: '/#services' },
@@ -34,6 +37,15 @@ const itemVariants = {
 };
 
 export default function Footer() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('mubianasaya@gmail.com');
+    setCopied(true);
+    toast.success('Email copied to clipboard!');
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <footer className="relative overflow-hidden border-t border-border bg-card">
       {/* Decorative blobs */}
@@ -154,18 +166,67 @@ export default function Footer() {
           transition={{ delay: 0.3 }}
         >
           <div className="flex items-center gap-1.5 flex-wrap justify-center md:justify-start">
-            <span>This application was developed by</span>
-            <Link
-              to="/"
-              onClick={() => {
-                if (window.location.pathname === '/') {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className="font-bold text-primary hover:text-accent underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-all cursor-pointer inline-flex items-center gap-1 bg-pink-100/70 hover:bg-pink-100 px-2.5 py-1 rounded-full text-xs"
-            >
-              Saya Mubiana
-            </Link>
+            <span>Developed by</span>
+            <Popover>
+              <PopoverTrigger asChild>
+                <button
+                  type="button"
+                  className="font-bold text-primary hover:text-accent underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-all cursor-pointer inline-flex items-center gap-1 bg-pink-100/70 hover:bg-pink-100 px-2.5 py-1 rounded-full text-xs"
+                >
+                  Saya Mubiana
+                </button>
+              </PopoverTrigger>
+              <PopoverContent
+                className="w-80 p-4 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/80 shadow-2xl z-50 text-slate-900"
+                side="top"
+                align="start"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between border-b pb-2 border-slate-100">
+                    <p className="font-extrabold text-sm text-slate-900">Developer Contact</p>
+                    <span className="text-[10px] bg-pink-100 text-primary px-2 py-0.5 rounded-full font-bold">Saya Mubiana</span>
+                  </div>
+                  <p className="text-xs text-slate-500">Contact options for mubianasaya@gmail.com:</p>
+
+                  <div className="space-y-2 pt-1">
+                    {/* Option 1: Send Email */}
+                    <a
+                      href="mailto:mubianasaya@gmail.com"
+                      className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/80 hover:bg-pink-50 hover:border-pink-200 transition-all text-xs group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-pink-100 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <div className="overflow-hidden flex-1">
+                        <div className="flex items-center justify-between">
+                          <p className="font-semibold text-slate-900 group-hover:text-primary">Send Email</p>
+                          <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-primary" />
+                        </div>
+                        <p className="text-slate-600 font-mono truncate text-[11px]">mubianasaya@gmail.com</p>
+                      </div>
+                    </a>
+
+                    {/* Option 2: Copy Email */}
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      className="w-full flex items-center gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/80 hover:bg-pink-50 hover:border-pink-200 transition-all text-xs group text-left cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-pink-100 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        {copied ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
+                      </div>
+                      <div className="overflow-hidden flex-1">
+                        <div className="flex items-center justify-between">
+                          <p className="font-semibold text-slate-900 group-hover:text-primary">Copy Email Address</p>
+                          <span className="text-[10px] text-slate-400 font-medium">{copied ? 'Copied!' : 'Click to copy'}</span>
+                        </div>
+                        <p className="text-slate-600 font-mono truncate text-[11px]">mubianasaya@gmail.com</p>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
           <p className="text-slate-500 text-center md:text-right">&copy; {new Date().getFullYear()} All rights reserved · Website maintenance packages available</p>
         </motion.div>
