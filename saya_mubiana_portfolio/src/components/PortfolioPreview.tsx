@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 const portfolioSites = [
   { title: 'Lindah Mulisa', type: 'Portfolio Website', url: 'https://lindahmulisa.netlify.app' },
   { title: 'Hope Mewess', type: 'Portfolio Website', url: 'https://hopemewess.netlify.app/' },
+  { title: 'Watanavi S Kaposambo', type: 'Portfolio Website', url: 'https://watanavikaposambo.netlify.app/' },
 ];
 
 const businessSites = [
@@ -25,7 +26,6 @@ export default function PortfolioPreview() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">My Work</h2>
-          <p className="text-slate-900 font-semibold max-w-2xl mx-auto">A selection of websites I have designed and developed for clients.</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

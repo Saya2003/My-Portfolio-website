@@ -3,7 +3,7 @@ import { Button } from '@project/components/ui/button';
 import { Input } from '@project/components/ui/input';
 import { Label } from '@project/components/ui/label';
 import { Textarea } from '@project/components/ui/textarea';
-import { submitQuote } from 'zitejs/api';
+import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
 import { Send, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -160,7 +160,36 @@ export default function QuoteForm() {
     }
     setLoading(true);
     try {
-      await submitQuote(form);
+      // Build a structured message from all form fields
+      const messageParts = [
+        `📋 NEW QUOTE REQUEST`,
+        ``,
+        `👤 Contact Details:`,
+        `  Name: ${form.name}`,
+        `  Email: ${form.email}`,
+        form.phone ? `  Phone: ${form.phone}` : '',
+        form.business ? `  Business: ${form.business}` : '',
+        ``,
+        `💼 Project Details:`,
+        `  Type: ${form.projectType}`,
+        `  Description: ${form.projectDescription}`,
+        form.featuresNeeded ? `  Features Needed: ${form.featuresNeeded}` : '',
+        ``,
+        `📌 Additional Info:`,
+        form.hasDomain ? `  Has Domain: ${form.hasDomain}` : '',
+        form.hasBranding ? `  Has Branding/Logo: ${form.hasBranding}` : '',
+        form.desiredCompletionDate ? `  Desired Completion: ${form.desiredCompletionDate}` : '',
+        form.budgetRange ? `  Budget Range: ${form.budgetRange}` : '',
+      ].filter(Boolean).join('\n');
+
+      const templateParams = {
+        from_name: form.name,
+        from_email: form.email,
+        message: messageParts,
+        to_email: 'mubianasaya@gmail.com',
+      };
+
+      await emailjs.send('service_1y1o923', 'template_3jvir6m', templateParams, 'Cj6fBkkArtLP6vpM2');
       toast.success('Quote request submitted! I will get back to you soon.');
       setForm({ name: '', email: '', phone: '', business: '', projectType: '', projectDescription: '', featuresNeeded: '', hasDomain: '', hasBranding: '', desiredCompletionDate: '', budgetRange: '' });
     } catch {

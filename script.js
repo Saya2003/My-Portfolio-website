@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 to_email: 'mubianasaya@gmail.com'
             };
 
-            emailjs.send('service_m8g9yc5', 'template_3jvir6m', templateParams)
+            emailjs.send('service_1y1o923', 'template_3jvir6m', templateParams)
                 .then(function () {
                     document.getElementById('successModal').style.display = 'flex';
                     contactForm.reset();

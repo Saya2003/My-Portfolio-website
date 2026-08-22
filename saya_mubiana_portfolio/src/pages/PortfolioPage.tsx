@@ -17,6 +17,12 @@ const portfolioSites = [
     url: 'https://hopemewess.netlify.app/',
     desc: 'A clean, responsive portfolio website for Hope Mewess that presents her professional identity online, helping her stand out to recruiters, employers and collaborators.',
   },
+  {
+    title: 'Watanavi S Kaposambo',
+    type: 'Portfolio Website',
+    url: 'https://watanavikaposambo.netlify.app/',
+    desc: 'A dynamic portfolio website for Watanavi S Kaposambo showcasing his skills, projects, and expertise as a web developer and marketing agent with a clean and engaging design.',
+  },
 ];
 
 const businessSites = [
@@ -76,9 +82,6 @@ export default function PortfolioPage() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Web Development Portfolio</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A showcase of websites I have designed and developed for my clients.
-            </p>
           </motion.div>
 
           <Section title="Portfolio Websites" sites={portfolioSites} />

@@ -1,4 +1,4 @@
-import { Mail, Globe, Phone, Heart, Code2 } from 'lucide-react';
+import { Mail, Globe, Heart, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Popover, PopoverContent, PopoverTrigger } from '@project/components/ui/popover';
@@ -16,11 +16,6 @@ const contactItems = [
     icon: Mail,
     label: 'mubianasaya@gmail.com',
     href: 'mailto:mubianasaya@gmail.com',
-  },
-  {
-    icon: Phone,
-    label: '+264 81 558 0036',
-    href: 'https://wa.me/264815580036',
   },
   {
     icon: Globe,
@@ -63,10 +58,6 @@ export default function Footer() {
                 Mubiana
               </p>
             </Link>
-            <p className="text-sm text-muted-foreground mt-2 max-w-xs mx-auto md:mx-0">
-              Building professional websites and digital solutions for individuals, businesses and organisations.
-            </p>
-
           </motion.div>
 
           {/* Quick links */}
@@ -179,19 +170,6 @@ export default function Footer() {
                       <div className="overflow-hidden">
                         <p className="font-semibold text-slate-900 group-hover:text-primary">Email</p>
                         <p className="text-slate-600 font-mono truncate">mubianasaya@gmail.com</p>
-                      </div>
-                    </a>
-
-                    <a
-                      href="tel:+264815580036"
-                      className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/80 hover:bg-pink-50 hover:border-pink-200 transition-all text-xs group"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-pink-100 text-primary flex items-center justify-center shrink-0">
-                        <Phone className="w-4 h-4" />
-                      </div>
-                      <div className="overflow-hidden">
-                        <p className="font-semibold text-slate-900 group-hover:text-primary">Cell Phone Number</p>
-                        <p className="text-slate-600 font-mono truncate">+264 81 558 0036</p>
                       </div>
                     </a>
                   </div>

@@ -41,7 +41,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-              My name is <strong className="text-slate-900 font-bold">Saya Mubiana</strong>. I&#39;m a passionate Software Developer who creates modern, responsive, and user-focused websites and digital solutions that bring ideas to life. I combine creativity, technical expertise, and attention to detail to build professional digital experiences that are both visually engaging and functional.
+              My name is <strong className="text-slate-900 font-bold">Saya Mubiana</strong>. I&#39;m a passionate Software Developer who creates modern, responsive, and user-focused websites and digital solutions that bring ideas to life.
             </p>
 
             <motion.div
@@ -80,7 +80,6 @@ export default function Hero() {
                     alt="Saya Mubiana, freelance software developer and web developer"
                     width={460}
                     height={460}
-                    fetchPriority="high"
                     decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
