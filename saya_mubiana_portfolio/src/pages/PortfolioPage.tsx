@@ -32,6 +32,12 @@ const businessSites = [
     url: 'https://findelisaccountants.netlify.app/',
     desc: 'A professional business website for Findelis Accountants, designed around the firm\u2019s brand and services. It presents the company\u2019s offerings and contact details in a trustworthy, organised layout that helps build client confidence online.',
   },
+  {
+    title: 'CRG Research',
+    type: 'Professional Business Website',
+    url: 'https://www.crg-research.com/',
+    desc: 'A custom professional business website for CRG Research, built to present the company\u2019s research services and brand with a polished, professional online presence.',
+  },
 ];
 
 const allSites = [...portfolioSites, ...businessSites];
