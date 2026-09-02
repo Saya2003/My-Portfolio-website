@@ -15,7 +15,7 @@ const businessSites = [
 ];
 
 export default function PortfolioPreview() {
-  const allSites = [...portfolioSites, ...businessSites];
+  const allSites = [...portfolioSites, ...businessSites].reverse().slice(0, 4);
 
   return (
     <section id="portfolio-preview" className="py-12 md:py-16 dotted-grid">
