@@ -2,7 +2,7 @@ import { Button } from '@project/components/ui/button';
 import { ArrowRight, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const PHOTO_URL = 'https://images.fillout.com/orgid-813188/flowpublicid-default/widgetid-default/f2UtjP4mnZTK8CxyFtuy7M/pasted-image-1786948607703-j34ww7c9.jpg';
+const PHOTO_URL = '/image-1.png';
 
 export default function Hero() {
   return (
