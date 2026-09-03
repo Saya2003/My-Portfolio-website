@@ -14,23 +14,18 @@ export default function PricingPreview() {
     <section id="pricing" className="py-14 md:py-20 relative overflow-hidden dotted-grid">
       <div className="relative">
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100/70 text-primary text-xs font-semibold mb-4 border border-pink-200/40">
-            PRICING
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">Transparent Pricing</h2>
-          <p className="text-slate-800 font-medium max-w-2xl mx-auto mt-3">
-            Clear starting prices, agreed scope and no hidden costs.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">Pricing</h2>
+
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
           {plans.map((p, i) => (
             <motion.div
               key={p.title}
-              className={`relative rounded-2xl border p-6 w-64 transition-all duration-300 ${
+              className={`relative rounded-2xl border-2 p-6 w-64 transition-all duration-300 ${
                 p.featured
-                  ? 'border-primary bg-white/95 shadow-xl ring-1 ring-primary/30'
-                  : 'border-slate-200/80 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'
+                  ? 'border-purple-700 bg-white/95 shadow-xl ring-1 ring-purple-700/30'
+                  : 'border-purple-700 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'
               }`}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

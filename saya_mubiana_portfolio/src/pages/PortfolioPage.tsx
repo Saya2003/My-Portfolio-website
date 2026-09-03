@@ -140,10 +140,6 @@ function Section({ title, sites }: { title: string; sites: typeof portfolioSites
             <div className="p-5">
               <h3 className="font-bold text-lg">{site.title}</h3>
               <span className="inline-block mt-2 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/15">{site.type}</span>
-              <p className="text-sm text-muted-foreground mt-2">
-                {site.desc}
-                <span className="block mt-1.5 text-primary font-medium">Designed &amp; developed by Saya Mubiana</span>
-              </p>
             </div>
           </motion.a>
         ))}

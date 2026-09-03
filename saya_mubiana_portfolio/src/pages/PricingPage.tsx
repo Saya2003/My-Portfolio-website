@@ -36,8 +36,8 @@ export default function PricingPage() {
       <main className="flex-1 pb-20">
         <PageHero
           badge="PRICING"
-          title="Simple, Transparent Pricing"
-          subtitle="Clear starting prices with no hidden costs. The exact scope and final quote are agreed before any development begins."
+          title="Pricing"
+          subtitle=""
         />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -51,7 +51,7 @@ export default function PricingPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Card className={`relative h-full min-h-[340px] md:min-h-[360px] flex flex-col justify-between p-6 rounded-2xl border transition-all duration-300 ${p.featured ? 'border-primary bg-white/95 shadow-xl ring-1 ring-primary/30' : 'border-slate-200/80 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'}`}>
+                <Card className={`relative h-full min-h-[340px] md:min-h-[360px] flex flex-col justify-between p-6 rounded-2xl border-2 transition-all duration-300 ${p.featured ? 'border-purple-700 bg-white/95 shadow-xl ring-1 ring-purple-700/30' : 'border-purple-700 bg-white/90 backdrop-blur-md hover:border-primary/25 hover:shadow-lg'}`}>
                   {p.featured && (
                     <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-md shadow-primary/30">
                       Popular
@@ -78,7 +78,7 @@ export default function PricingPage() {
           </div>
 
           <motion.div
-            className="max-w-4xl mx-auto mt-12 bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm"
+            className="max-w-4xl mx-auto mt-12 bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border-2 border-purple-700 shadow-sm"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

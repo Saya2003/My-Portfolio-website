@@ -50,7 +50,7 @@ export default function FaqPage() {
         />
 
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm divide-y divide-slate-200/60">
+          <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border-2 border-purple-700 shadow-sm divide-y divide-slate-200/60">
             {faqs.map((f, i) => (
               <motion.div
                 key={i}
@@ -86,7 +86,7 @@ export default function FaqPage() {
           </div>
 
           <motion.div
-            className="max-w-3xl mx-auto mt-8 bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-4 text-sm text-slate-900 font-semibold"
+            className="max-w-3xl mx-auto mt-8 bg-white/80 backdrop-blur-md rounded-2xl p-6 border-2 border-purple-700 shadow-sm space-y-4 text-sm text-slate-900 font-semibold"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

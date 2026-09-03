@@ -75,7 +75,7 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
               >
-                <Card className="h-full rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-md hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group">
+                <Card className="h-full rounded-2xl border-2 border-purple-700 bg-white/90 backdrop-blur-md hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group">
                   <CardHeader>
                     <div className="w-11 h-11 rounded-xl bg-pink-100/70 text-primary flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                       <s.icon className="w-5 h-5 text-primary" />

@@ -42,7 +42,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-              My name is <strong className="text-slate-900 font-bold">Saya Mubiana</strong>. I&#39;m a passionate Software Developer who creates modern, responsive, and user-focused websites and digital solutions that bring ideas to life.
+              My name is <strong className="text-slate-900 font-bold">Saya Mubiana</strong>. I&#39;m a passionate Software Developer.
             </p>
 
             <motion.div

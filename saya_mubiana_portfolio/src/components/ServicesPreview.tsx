@@ -51,7 +51,7 @@ export default function ServicesPreview() {
           {services.map((s, i) => (
             <motion.div
               key={s.title}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-3xl border-2 border-purple-700 bg-white/90 backdrop-blur-md p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

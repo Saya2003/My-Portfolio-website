@@ -74,7 +74,7 @@ export default function ProcessPage() {
           </div>
 
           <motion.div
-            className="mt-12 max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-slate-200/80 shadow-sm"
+            className="mt-12 max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 border-2 border-purple-700 shadow-sm"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

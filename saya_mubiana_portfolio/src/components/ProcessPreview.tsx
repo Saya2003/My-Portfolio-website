@@ -34,7 +34,7 @@ export default function ProcessPreview() {
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
-              className="relative rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-md p-6 text-center hover:border-primary/40 transition-all duration-300 hover:shadow-lg"
+              className="relative rounded-2xl border-2 border-purple-700 bg-white/90 backdrop-blur-md p-6 text-center hover:border-primary/40 transition-all duration-300 hover:shadow-lg"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
