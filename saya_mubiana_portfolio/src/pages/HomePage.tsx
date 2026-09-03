@@ -1,11 +1,10 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Services from '../components/Services';
-import Process from '../components/Process';
-import Pricing from '../components/Pricing';
+import ServicesPreview from '../components/ServicesPreview';
 import PortfolioPreview from '../components/PortfolioPreview';
-import FAQ from '../components/FAQ';
-import QuoteForm from '../components/QuoteForm';
+import ProcessPreview from '../components/ProcessPreview';
+import PricingPreview from '../components/PricingPreview';
+import CtaBanner from '../components/CtaBanner';
 import Footer from '../components/Footer';
 import PageMeta from '../components/PageMeta';
 
@@ -20,12 +19,11 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Services />
+        <ServicesPreview />
         <PortfolioPreview />
-        <Process />
-        <Pricing />
-        <FAQ />
-        <QuoteForm />
+        <ProcessPreview />
+        <PricingPreview />
+        <CtaBanner />
       </main>
       <Footer />
     </div>

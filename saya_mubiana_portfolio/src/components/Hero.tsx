@@ -1,6 +1,7 @@
 import { Button } from '@project/components/ui/button';
 import { ArrowRight, Code2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const PHOTO_URL = '/image-1.png';
 
@@ -55,11 +56,11 @@ export default function Hero() {
                   View My Work <ArrowRight className="w-4.5 h-4.5 text-slate-700" />
                 </Button>
               </a>
-              <a href="#quote">
+              <Link to="/contact">
                 <Button size="lg" className="gap-2.5 bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 shadow-lg shadow-primary/25 rounded-xl px-7 py-3.5 h-12 text-base font-semibold transition-all">
                   Get a Quote <ArrowRight className="w-4.5 h-4.5 text-white" />
                 </Button>
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 

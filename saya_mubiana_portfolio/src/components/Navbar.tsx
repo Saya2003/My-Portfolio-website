@@ -8,7 +8,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
-  const isHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -17,11 +16,11 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: 'Services', href: isHome ? '#services' : '/#services' },
-    { label: 'Process', href: isHome ? '#process' : '/#process' },
-    { label: 'Pricing', href: isHome ? '#pricing' : '/#pricing' },
-    { label: 'Portfolio', href: '/portfolio' },
-    { label: 'FAQ', href: isHome ? '#faq' : '/#faq' },
+    { label: 'Services', href: '/services', internal: true },
+    { label: 'Process', href: '/process', internal: true },
+    { label: 'Portfolio', href: '/portfolio', internal: true },
+    { label: 'Pricing', href: '/pricing', internal: true },
+    { label: 'FAQ', href: '/faq', internal: true },
   ];
 
   return (
@@ -60,11 +59,11 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.08 }}
             >
-              {l.href === '/portfolio' ? (
+              {l.href === '/portfolio' || l.internal ? (
                 <Link
-                  to="/portfolio"
+                  to={l.href}
                   onClick={() => {
-                    if (pathname === '/portfolio') {
+                    if (pathname === l.href) {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                   }}
@@ -93,11 +92,11 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 }}
           >
-            <a href={isHome ? '#quote' : '/#quote'}>
+            <Link to="/contact">
               <Button size="sm" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity shadow-md rounded-xl px-4 py-2.5 h-9 font-semibold">
                 Get a Quote
               </Button>
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -143,13 +142,13 @@ export default function Navbar() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.06 }}
                 >
-                  {l.href === '/portfolio' ? (
+                  {l.internal ? (
                     <Link
-                      to="/portfolio"
+                      to={l.href}
                       className="block py-2.5 px-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/5 rounded-lg transition-colors"
                       onClick={() => {
                         setOpen(false);
-                        if (pathname === '/portfolio') {
+                        if (pathname === l.href) {
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                       }}
@@ -168,9 +167,9 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }} className="pt-2">
-                <a href={isHome ? '#quote' : '/#quote'} onClick={() => setOpen(false)}>
+                <Link to="/contact" onClick={() => setOpen(false)}>
                   <Button size="sm" className="w-full bg-gradient-to-r from-primary to-accent">Get a Quote</Button>
-                </a>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

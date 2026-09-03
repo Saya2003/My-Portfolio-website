@@ -6,11 +6,12 @@ import { Popover, PopoverContent, PopoverTrigger } from '@project/components/ui/
 import { toast } from 'sonner';
 
 const navLinks = [
-  { label: 'Services', href: '/#services' },
-  { label: 'Process', href: '/#process' },
-  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Services', href: '/services' },
+  { label: 'Process', href: '/process' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const contactItems = [
@@ -85,28 +86,18 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  {link.href.startsWith('/') && !link.href.startsWith('/#') ? (
-                    <Link
-                      to={link.href}
-                      onClick={() => {
-                        if (link.href === '/portfolio' && window.location.pathname === '/portfolio') {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                      }}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
-                    >
-                      <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
-                    >
-                      <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
-                      {link.label}
-                    </a>
-                  )}
+                  <Link
+                    to={link.href}
+                    onClick={() => {
+                      if (window.location.pathname === link.href) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+                  >
+                    <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
