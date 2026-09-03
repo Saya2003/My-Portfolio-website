@@ -1,24 +1,42 @@
 import { Button } from '@project/components/ui/button';
 import { ArrowRight, Code2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { useIsMobile } from '../hooks/useParallax';
 
 const PHOTO_URL = '/image-1.png';
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax: image travels slower than content for depth.
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 30 : 90]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 20 : 60]);
+  const blobA = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -20 : -80]);
+  const blobB = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 20 : 80]);
+
   return (
-    <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden dotted-grid">
+    <section ref={ref} className="relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden dotted-grid">
       {/* Gradient blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <motion.div style={{ y: blobA }} className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+      </motion.div>
+      <motion.div style={{ y: blobB }} className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 via-accent/5 to-transparent rounded-full blur-3xl" />
-      </div>
+      </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Text */}
           <motion.div
+            style={{ y: textY }}
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -66,6 +84,7 @@ export default function Hero() {
 
           {/* Photo */}
           <motion.div
+            style={{ y: photoY }}
             className="flex-shrink-0"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}

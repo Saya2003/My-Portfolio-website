@@ -1,7 +1,9 @@
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@project/components/ui/button';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { useIsMobile } from '../hooks/useParallax';
 
 const portfolioSites = [
   { title: 'Lindah Mulisa', type: 'Portfolio Website', url: 'https://lindahmulisa.netlify.app' },
@@ -15,10 +17,18 @@ const businessSites = [
 ];
 
 export default function PortfolioPreview() {
+  const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const shift = useTransform(scrollYProgress, [0, 1], [isMobile ? -12 : -35, isMobile ? 12 : 35]);
+
   const allSites = [...portfolioSites, ...businessSites].reverse().slice(0, 4);
 
   return (
-    <section id="portfolio-preview" className="py-12 md:py-16 dotted-grid">
+    <section ref={ref} id="portfolio-preview" className="py-12 md:py-16 dotted-grid">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-8"
@@ -29,7 +39,7 @@ export default function PortfolioPreview() {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">My Work</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div style={{ y: shift }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {allSites.map((site, i) => (
             <motion.a
               key={site.url}
@@ -61,7 +71,7 @@ export default function PortfolioPreview() {
               </div>
             </motion.a>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           className="text-center mt-10"

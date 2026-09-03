@@ -1,7 +1,9 @@
 import { Globe, Briefcase, Settings2, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@project/components/ui/button';
+import { useRef } from 'react';
+import { useIsMobile } from '../hooks/useParallax';
 
 const services = [
   {
@@ -25,10 +27,19 @@ const services = [
 ];
 
 export default function ServicesPreview() {
+  const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const blobA = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -20 : -70]);
+  const blobB = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 20 : 70]);
+
   return (
-    <section id="services" className="py-14 md:py-20 relative overflow-hidden dotted-grid">
-      <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+    <section ref={ref} id="services" className="py-14 md:py-20 relative overflow-hidden dotted-grid">
+      <motion.div style={{ y: blobA }} className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <motion.div style={{ y: blobB }} className="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

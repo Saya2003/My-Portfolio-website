@@ -1,7 +1,9 @@
 import { Check, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@project/components/ui/button';
+import { useRef } from 'react';
+import { useIsMobile } from '../hooks/useParallax';
 
 const plans = [
   { title: 'Portfolio Website', price: 'From $93', featured: false },
@@ -10,15 +12,23 @@ const plans = [
 ];
 
 export default function PricingPreview() {
+  const ref = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const shift = useTransform(scrollYProgress, [0, 1], [isMobile ? 12 : 40, isMobile ? -12 : -40]);
+
   return (
-    <section id="pricing" className="py-14 md:py-20 relative overflow-hidden dotted-grid">
+    <section ref={ref} id="pricing" className="py-14 md:py-20 relative overflow-hidden dotted-grid">
       <div className="relative">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">Pricing</h2>
 
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <motion.div style={{ y: shift }} className="flex flex-wrap justify-center gap-4">
           {plans.map((p, i) => (
             <motion.div
               key={p.title}
@@ -46,7 +56,7 @@ export default function PricingPreview() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           className="text-center mt-10"
