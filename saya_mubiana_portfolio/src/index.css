@@ -27,11 +27,11 @@
     --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --background: 0 0% 100%;
+    --background: 280 20% 99%;
     --foreground: 270 30% 12%;
-    --card: 0 0% 100%;
+    --card: 280 25% 97%;
     --card-foreground: 270 30% 12%;
-    --popover: 0 0% 100%;
+    --popover: 280 20% 99%;
     --popover-foreground: 270 30% 12%;
     --primary: 300 60% 48%;
     --primary-foreground: 0 0% 100%;
@@ -97,9 +97,9 @@
 }
 
 @layer components {
-  /* White square dot grid pattern throughout the application */
+  /* Blush pink square dot grid pattern throughout the application */
   .dotted-grid {
-    background-color: #ffffff;
+    background-color: #fdf2f5;
     background-image: radial-gradient(circle, rgba(214, 168, 184, 0.6) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
     background-position: 0 0;

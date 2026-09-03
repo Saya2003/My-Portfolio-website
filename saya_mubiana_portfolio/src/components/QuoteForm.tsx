@@ -121,15 +121,15 @@ function CustomSelect({
                 color: '#1e293b',
                 textAlign: 'left',
                 cursor: 'pointer',
-                backgroundColor: value === option.value ? '#f0f0f0' : 'transparent',
+                backgroundColor: value === option.value ? '#fdf2f5' : 'transparent',
                 transition: 'background-color 0.1s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#f0f0f0';
+                e.currentTarget.style.backgroundColor = '#fdf2f5';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor =
-                  value === option.value ? '#f0f0f0' : 'transparent';
+                  value === option.value ? '#fdf2f5' : 'transparent';
               }}
             >
               {option.label}
