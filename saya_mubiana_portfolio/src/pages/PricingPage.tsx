@@ -21,7 +21,7 @@ const included = [
   { q: 'Who provides the content?', a: 'The client provides the required business information, images, logos, written content and other materials unless content creation has been separately agreed upon.' },
   { q: 'What about domains?', a: 'Domain registration and renewal fees are separate unless specifically included in your quotation.' },
   { q: 'What about hosting?', a: 'Basic deployment is included where applicable. Third-party hosting, premium services, APIs and other external costs may be charged separately.' },
-  { q: 'Do you provide maintenance?', a: 'Yes. Ongoing maintenance and support can be arranged separately after project completion.' },
+  { q: 'Do you provide maintenance?', a: 'Yes. I offer ongoing website maintenance and technical support. Visit the Maintenance page for package details and pricing.' },
 ];
 
 export default function PricingPage() {

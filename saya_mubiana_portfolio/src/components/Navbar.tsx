@@ -20,6 +20,7 @@ export default function Navbar() {
     { label: 'Process', href: '/process', internal: true },
     { label: 'Portfolio', href: '/portfolio', internal: true },
     { label: 'Pricing', href: '/pricing', internal: true },
+    { label: 'Maintenance', href: '/maintenance', internal: true },
     { label: 'FAQ', href: '/faq', internal: true },
   ];
 

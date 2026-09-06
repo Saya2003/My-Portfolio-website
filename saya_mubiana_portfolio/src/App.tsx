@@ -8,6 +8,7 @@ import ProcessPage from './pages/ProcessPage';
 import PricingPage from './pages/PricingPage';
 import FaqPage from './pages/FaqPage';
 import ContactPage from './pages/ContactPage';
+import MaintenancePage from './pages/MaintenancePage';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/process" element={<ProcessPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/maintenance" element={<MaintenancePage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

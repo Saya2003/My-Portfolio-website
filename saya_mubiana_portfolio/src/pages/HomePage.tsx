@@ -4,6 +4,7 @@ import ServicesPreview from '../components/ServicesPreview';
 import PortfolioPreview from '../components/PortfolioPreview';
 import ProcessPreview from '../components/ProcessPreview';
 import PricingPreview from '../components/PricingPreview';
+import MaintenancePreview from '../components/MaintenancePreview';
 import CtaBanner from '../components/CtaBanner';
 import Footer from '../components/Footer';
 import PageMeta from '../components/PageMeta';
@@ -23,6 +24,7 @@ export default function HomePage() {
         <PortfolioPreview />
         <ProcessPreview />
         <PricingPreview />
+        <MaintenancePreview />
         <CtaBanner />
       </main>
       <Footer />
