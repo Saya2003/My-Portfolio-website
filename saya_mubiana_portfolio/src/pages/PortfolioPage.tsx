@@ -38,6 +38,12 @@ const businessSites = [
     url: 'https://www.crg-research.com/',
     desc: 'A custom professional business website for CRG Research, built to present the company\u2019s research services and brand with a polished, professional online presence.',
   },
+  {
+    title: 'Her Namibia',
+    type: 'Professional Business Website',
+    url: 'https://her-namibia2.hernamibia334.workers.dev/',
+    desc: 'A premium storytelling and podcast platform for Her Namibia, celebrating the voices and journeys of Namibian women through featured stories, articles, resources and podcast content in a polished, engaging layout.',
+  },
 ];
 
 const allSites = [...portfolioSites, ...businessSites];

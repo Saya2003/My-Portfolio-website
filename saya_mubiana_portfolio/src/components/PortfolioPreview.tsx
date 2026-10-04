@@ -14,6 +14,7 @@ const portfolioSites = [
 const businessSites = [
   { title: 'Findelis Accountants', type: 'Professional Business Website', url: 'https://findelisaccountants.netlify.app/' },
   { title: 'CRG Research', type: 'Professional Business Website', url: 'https://www.crg-research.com/' },
+  { title: 'Her Namibia', type: 'Professional Business Website', url: 'https://her-namibia2.hernamibia334.workers.dev/' },
 ];
 
 export default function PortfolioPreview() {
