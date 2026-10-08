@@ -1,10 +1,9 @@
 import { ArrowRight } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@project/components/ui/button';
-import { useRef } from 'react';
-import { useIsMobile } from '../hooks/useParallax';
 import SectionHeader from './SectionHeader';
+import { ParallaxHeader, ParallaxItem, ParallaxLayer, ParallaxSection } from './ParallaxSection';
 
 const plans = [
   { title: 'Standard Maintenance', desc: 'For portfolio and business websites' },
@@ -12,38 +11,35 @@ const plans = [
 ];
 
 export default function MaintenancePreview() {
-  const ref = useRef<HTMLElement>(null);
-  const isMobile = useIsMobile();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-  const shift = useTransform(scrollYProgress, [0, 1], [isMobile ? 12 : 40, isMobile ? -12 : -40]);
-
   return (
-    <section ref={ref} id="maintenance" className="section-shell dotted-grid">
-      <div className="site-container relative">
-        <SectionHeader
-          badge="MAINTENANCE"
-          title="Website Maintenance"
-          subtitle="Keep your website secure, updated and running smoothly after launch."
-        />
+    <ParallaxSection id="maintenance" className="section-shell dotted-grid">
+      <ParallaxLayer speed={0.42} className="absolute top-1/2 -right-16 w-64 h-64 bg-primary/8 rounded-full blur-3xl" />
 
-        <motion.div style={{ y: shift }} className="flex flex-wrap justify-center gap-4 lg:gap-6">
+      <div className="site-container relative">
+        <ParallaxHeader>
+          <SectionHeader
+            badge="MAINTENANCE"
+            title="Website Maintenance"
+            subtitle="Keep your website secure, updated and running smoothly after launch."
+          />
+        </ParallaxHeader>
+
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
           {plans.map((p, i) => (
-            <motion.div
-              key={p.title}
-              className="surface-card relative p-6 w-full max-w-xs sm:w-64"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.5 }}
-            >
-              <h3 className="font-bold text-slate-900 text-center">{p.title}</h3>
-              <p className="mt-3 text-sm text-slate-600 font-medium text-center">{p.desc}</p>
-            </motion.div>
+            <ParallaxItem key={p.title} index={i} intensity={44}>
+              <motion.div
+                className="surface-card relative p-6 w-full max-w-xs sm:w-64"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12, duration: 0.5 }}
+              >
+                <h3 className="font-bold text-foreground text-center">{p.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground font-medium text-center">{p.desc}</p>
+              </motion.div>
+            </ParallaxItem>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           className="text-center mt-10"
@@ -59,6 +55,6 @@ export default function MaintenancePreview() {
           </Link>
         </motion.div>
       </div>
-    </section>
+    </ParallaxSection>
   );
 }

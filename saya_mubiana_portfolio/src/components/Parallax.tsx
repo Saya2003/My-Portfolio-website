@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { useIsMobile } from '../hooks/useParallax';
+import { useIsMobile, usePrefersReducedMotion } from '../hooks/useParallax';
 
 interface ParallaxProps {
   children: ReactNode;
@@ -31,13 +31,14 @@ export default function Parallax({
 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const reduced = usePrefersReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   });
 
-  const applied = isMobile ? intensity * 0.3 : intensity;
-  const xApplied = isMobile ? xIntensity * 0.3 : xIntensity;
+  const applied = reduced ? 0 : isMobile ? intensity * 0.3 : intensity;
+  const xApplied = reduced ? 0 : isMobile ? xIntensity * 0.3 : xIntensity;
 
   const y = useTransform(scrollYProgress, [0, 1], [applied, -applied]);
   const x = useTransform(scrollYProgress, [0, 1], [-xApplied, xApplied]);

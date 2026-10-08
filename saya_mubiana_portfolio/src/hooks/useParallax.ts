@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type RefObject } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
 
 /**
@@ -20,6 +20,20 @@ export function useIsMobile() {
   return isMobile;
 }
 
+export function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduced(mq.matches);
+    update();
+    mq.addEventListener?.('change', update);
+    return () => mq.removeEventListener?.('change', update);
+  }, []);
+
+  return reduced;
+}
+
 /**
  * A reusable scroll-driven parallax hook.
  *
@@ -38,8 +52,9 @@ export function useParallax(
   mobileScale = 0.35,
 ) {
   const isMobile = useIsMobile();
+  const reduced = usePrefersReducedMotion();
   const { scrollYProgress } = useScroll();
-  const applied = isMobile ? intensity * mobileScale : intensity;
+  const applied = reduced ? 0 : isMobile ? intensity * mobileScale : intensity;
   return useTransform(scrollYProgress, range, [applied, -applied]);
 }
 
@@ -50,8 +65,36 @@ export function useParallaxFrom(
   mobileScale = 0.35,
 ) {
   const isMobile = useIsMobile();
+  const reduced = usePrefersReducedMotion();
   const { scrollYProgress } = useScroll();
+  if (reduced) {
+    return useTransform(scrollYProgress, range, [0, 0]);
+  }
   const f = isMobile ? from + (to - from) * mobileScale : from;
   const t = to;
   return useTransform(scrollYProgress, range, [f, t]);
+}
+
+/** Scroll-linked scale + vertical shift for hero imagery. */
+export function useHeroDepth(ref: RefObject<HTMLElement | null>, isMobile: boolean) {
+  const reduced = usePrefersReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduced ? [0, 0] : [0, isMobile ? 36 : 88],
+  );
+  const scale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1, isMobile ? 0.94 : 0.88]);
+  const textY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduced ? [0, 0] : [0, isMobile ? 22 : 56],
+  );
+  const opacity = useTransform(scrollYProgress, [0, 0.85, 1], reduced ? [1, 1, 1] : [1, 0.92, 0.75]);
+
+  return { y, scale, textY, opacity, scrollYProgress };
 }

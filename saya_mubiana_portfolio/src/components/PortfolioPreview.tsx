@@ -1,10 +1,9 @@
 import { ExternalLink } from 'lucide-react';
 import { Button } from '@project/components/ui/button';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import { useIsMobile } from '../hooks/useParallax';
+import { motion } from 'framer-motion';
 import SectionHeader from './SectionHeader';
+import { ParallaxHeader, ParallaxItem, ParallaxLayer, ParallaxSection } from './ParallaxSection';
 
 const portfolioSites = [
   { title: 'Lindah Mulisa', type: 'Portfolio Website', url: 'https://lindahmulisa.netlify.app' },
@@ -19,54 +18,52 @@ const businessSites = [
 ];
 
 export default function PortfolioPreview() {
-  const ref = useRef<HTMLElement>(null);
-  const isMobile = useIsMobile();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-  const shift = useTransform(scrollYProgress, [0, 1], [isMobile ? -12 : -35, isMobile ? 12 : 35]);
-
   const allSites = [...portfolioSites, ...businessSites].reverse().slice(0, 4);
 
   return (
-    <section ref={ref} id="portfolio-preview" className="section-shell dotted-grid">
-      <div className="site-container">
-        <SectionHeader badge="PORTFOLIO" title="My Work" subtitle="A selection of websites I've designed and built for clients." />
+    <ParallaxSection id="portfolio-preview" className="section-shell dotted-grid">
+      <ParallaxLayer speed={0.5} className="absolute -top-10 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      <ParallaxLayer speed={0.3} className="absolute bottom-0 left-1/3 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
 
-        <motion.div style={{ y: shift }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      <div className="site-container relative z-10">
+        <ParallaxHeader>
+          <SectionHeader badge="PORTFOLIO" title="My Work" subtitle="A selection of websites I've designed and built for clients." />
+        </ParallaxHeader>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {allSites.map((site, i) => (
-            <motion.a
-              key={site.url}
-              href={site.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group surface-card block overflow-hidden rounded-2xl p-0 hover:-translate-y-1"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -4 }}
-            >
-              <div className="aspect-video bg-muted flex items-center justify-center relative overflow-hidden rounded-xl">
-                <iframe
-                  src={site.url}
-                  title={site.title}
-                  className="w-[200%] h-[200%] scale-50 origin-top-left pointer-events-none absolute top-0 left-0"
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin"
-                />
-                <div className="absolute inset-0 bg-transparent group-hover:bg-primary/10 transition-colors flex items-center justify-center">
-                  <ExternalLink className="w-8 h-8 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+            <ParallaxItem key={site.url} index={i} intensity={64} driftX>
+              <motion.a
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group surface-card block overflow-hidden rounded-2xl p-0 hover:-translate-y-1"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="aspect-video bg-muted flex items-center justify-center relative overflow-hidden rounded-xl">
+                  <iframe
+                    src={site.url}
+                    title={site.title}
+                    className="w-[200%] h-[200%] scale-50 origin-top-left pointer-events-none absolute top-0 left-0"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                  />
+                  <div className="absolute inset-0 bg-transparent group-hover:bg-primary/10 transition-colors flex items-center justify-center">
+                    <ExternalLink className="w-8 h-8 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
                 </div>
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-sm">{site.title}</h3>
-                <span className="inline-block mt-2 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/15">{site.type}</span>
-              </div>
-            </motion.a>
+                <div className="p-4">
+                  <h3 className="font-semibold text-sm">{site.title}</h3>
+                  <span className="inline-block mt-2 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/15">{site.type}</span>
+                </div>
+              </motion.a>
+            </ParallaxItem>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           className="text-center mt-10"
@@ -82,6 +79,6 @@ export default function PortfolioPreview() {
           </Link>
         </motion.div>
       </div>
-    </section>
+    </ParallaxSection>
   );
 }

@@ -1,10 +1,9 @@
 import { Button } from '@project/components/ui/button';
 import { ArrowRight, Code2 } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
-import { useIsMobile } from '../hooks/useParallax';
-
+import { useHeroDepth, useIsMobile } from '../hooks/useParallax';
 const PHOTO_URL = '/image-1.png';
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -12,18 +11,13 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
+  const { y: photoY, scale: photoScale, textY, opacity: heroOpacity, scrollYProgress } = useHeroDepth(ref, isMobile);
 
-  const photoY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 24 : 72]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 16 : 48]);
-  const blobA = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -16 : -64]);
-  const blobB = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 16 : 64]);
+  const blobA = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -24 : -96]);
+  const blobB = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 24 : 96]);
 
   return (
-    <section ref={ref} className="relative section-shell pt-28 md:pt-32 pb-14 md:pb-20 dotted-grid">
+    <section ref={ref} className="relative section-shell pt-28 md:pt-32 pb-14 md:pb-20 dotted-grid overflow-hidden">
       <motion.div style={{ y: blobA }} className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-primary/12 rounded-full blur-3xl animate-pulse" />
       </motion.div>
@@ -32,7 +26,7 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(600px,90vw)] h-[min(600px,90vw)] bg-gradient-to-br from-primary/8 via-accent/6 to-transparent rounded-full blur-3xl" />
       </motion.div>
 
-      <div className="site-container relative z-10">
+      <motion.div style={{ opacity: heroOpacity }} className="site-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
           <motion.div
             style={{ y: textY }}
@@ -95,8 +89,8 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            style={{ y: photoY }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2"
+            style={{ y: photoY, scale: photoScale }}
+            className="flex justify-center lg:justify-end order-1 lg:order-2 origin-center lg:origin-right"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: easeOut }}
@@ -124,7 +118,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Mail, Globe, Copy, Check, ExternalLink, ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { useIsMobile, usePrefersReducedMotion } from '../hooks/useParallax';
 import { Link, useLocation } from 'react-router-dom';
 import { Popover, PopoverContent, PopoverTrigger } from '@project/components/ui/popover';
 import { toast } from 'sonner';
@@ -32,6 +34,23 @@ const itemVariants = {
 export default function Footer() {
   const [copied, setCopied] = useState(false);
   const { pathname } = useLocation();
+  const footerRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+  const reduced = usePrefersReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ['start end', 'end start'],
+  });
+  const blobRightY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduced ? [0, 0] : [isMobile ? 20 : 70, isMobile ? -20 : -70],
+  );
+  const blobLeftY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduced ? [0, 0] : [isMobile ? -16 : -55, isMobile ? 16 : 55],
+  );
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('mubianasaya@gmail.com');
@@ -41,7 +60,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-gradient-to-b from-card to-background">
+    <footer ref={footerRef} className="relative overflow-hidden border-t border-border bg-gradient-to-b from-card to-background">
       <motion.div
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"
         initial={{ scaleX: 0, opacity: 0 }}
@@ -49,8 +68,8 @@ export default function Footer() {
         viewport={{ once: true }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       />
-      <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -top-24 -left-24 w-72 h-72 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+      <motion.div style={{ y: blobRightY }} className="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <motion.div style={{ y: blobLeftY }} className="absolute -top-24 -left-24 w-72 h-72 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="site-container relative z-10">
         <motion.div

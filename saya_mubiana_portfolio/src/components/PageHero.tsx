@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { ParallaxLayer, ParallaxSection } from './ParallaxSection';
 
 interface PageHeroProps {
   badge?: string;
@@ -10,11 +11,9 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
 
 export default function PageHero({ badge, title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative pt-28 pb-10 md:pt-32 md:pb-14 overflow-hidden dotted-grid">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-32 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
+    <ParallaxSection className="pt-28 pb-10 md:pt-32 md:pb-14 dotted-grid">
+      <ParallaxLayer speed={0.5} className="absolute -top-32 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      <ParallaxLayer speed={0.32} className="absolute -bottom-32 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
 
       <div className="site-container relative z-10">
         <motion.div
@@ -60,6 +59,6 @@ export default function PageHero({ badge, title, subtitle }: PageHeroProps) {
           />
         </motion.div>
       </div>
-    </section>
+    </ParallaxSection>
   );
 }
