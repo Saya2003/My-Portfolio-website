@@ -88,7 +88,7 @@ export function useHeroDepth(ref: RefObject<HTMLElement | null>, isMobile: boole
     [0, 1],
     reduced ? [0, 0] : [0, isMobile ? 36 : 88],
   );
-  const scale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1, isMobile ? 0.94 : 0.88]);
+  const scale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1, isMobile ? 1.02 : 1.04]);
   const textY = useTransform(
     scrollYProgress,
     [0, 1],

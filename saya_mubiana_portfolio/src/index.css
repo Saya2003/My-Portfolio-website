@@ -133,6 +133,24 @@
     @apply text-primary;
   }
 
+  /* Keep portrait focal point on the face across viewport sizes */
+  .hero-photo {
+    object-fit: cover;
+    object-position: 50% 46%;
+  }
+
+  @media (min-width: 640px) {
+    .hero-photo {
+      object-position: 55% 44%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-photo {
+      object-position: 68% 42%;
+    }
+  }
+
   /* Blush pink square dot grid pattern throughout the application */
   .dotted-grid {
     background-color: hsl(var(--background));

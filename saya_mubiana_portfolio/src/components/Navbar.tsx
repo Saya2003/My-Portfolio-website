@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@project/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SCROLL_REVEAL_SVH } from '../constants/heroScroll';
 
 const links = [
   { label: 'Services', href: '/services' },
@@ -17,11 +18,13 @@ function NavItem({
   label,
   pathname,
   onNavigate,
+  overHero,
 }: {
   href: string;
   label: string;
   pathname: string;
   onNavigate?: () => void;
+  overHero?: boolean;
 }) {
   const active = pathname === href;
 
@@ -34,7 +37,9 @@ function NavItem({
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }}
-      className={`nav-link group ${active ? 'nav-link-active' : ''}`}
+      className={`nav-link group ${active ? 'nav-link-active' : ''} ${
+        overHero ? 'text-white/85 hover:text-white' : ''
+      } ${overHero && active ? '!text-white' : ''}`}
     >
       {label}
       <span
@@ -51,8 +56,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
 
+  const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrollY(y);
+      setScrolled(y > 16);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -69,13 +80,16 @@ export default function Navbar() {
     };
   }, [open]);
 
+  const heroRevealEnd = typeof window !== 'undefined' ? window.innerHeight * (1 + SCROLL_REVEAL_SVH / 100) : 0;
+  const overHero = pathname === '/' && scrollY < heroRevealEnd && !open;
+
   return (
     <motion.header
       initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 140, damping: 22, delay: 0.05 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-[background,box-shadow,border-color] duration-500 ${
-        scrolled || open ? 'nav-glass' : 'bg-transparent border-b border-transparent'
+        scrolled || open ? 'nav-glass' : overHero ? 'bg-black/15 backdrop-blur-[2px] border-b border-white/10' : 'bg-transparent border-b border-transparent'
       }`}
     >
       <nav className="site-container h-16 lg:h-[4.25rem] grid grid-cols-[1fr_auto] lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3">
@@ -89,11 +103,11 @@ export default function Navbar() {
           className="group flex items-center gap-2 justify-self-start"
         >
           <motion.span
-            className="text-xl font-bold tracking-tight text-foreground"
+            className={`text-xl font-bold tracking-tight ${overHero ? 'text-white' : 'text-foreground'}`}
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
           >
-            <span className="gradient-text">Saya</span> Mubiana
+            <span className={overHero ? 'text-white' : 'gradient-text'}>Saya</span> Mubiana
           </motion.span>
         </Link>
 
@@ -105,7 +119,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12 + i * 0.05, duration: 0.35 }}
             >
-              <NavItem href={l.href} label={l.label} pathname={pathname} />
+              <NavItem href={l.href} label={l.label} pathname={pathname} overHero={overHero} />
             </motion.div>
           ))}
         </div>
@@ -129,7 +143,9 @@ export default function Navbar() {
 
           <motion.button
             type="button"
-            className="lg:hidden relative p-2 rounded-xl text-foreground hover:bg-primary/10 transition-colors"
+            className={`lg:hidden relative p-2 rounded-xl transition-colors ${
+              overHero ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-primary/10'
+            }`}
             onClick={() => setOpen(!open)}
             whileTap={{ scale: 0.92 }}
             aria-expanded={open}
