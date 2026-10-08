@@ -13,7 +13,6 @@ const services = [
   {
     icon: Globe,
     title: 'Portfolio Websites',
-    price: 'From $93 / N$1,502.75',
     desc: 'Turn your CV and professional experience into a modern online presence.',
     idealFor: ['Students', 'Graduates', 'Software developers', 'Professionals', 'Creatives', 'Freelancers', 'Job seekers', 'Personal brands'],
     includes: [
@@ -25,7 +24,6 @@ const services = [
   {
     icon: Briefcase,
     title: 'Professional Business Websites',
-    price: 'From $280 / N$4,524.41',
     desc: 'Give your business a professional online presence with a modern website designed around your brand and services.',
     idealFor: ['Small businesses', 'Startups', 'Entrepreneurs', 'Service providers', 'Organisations', 'Local businesses', 'Personal brands', 'Professional practices'],
     includes: [
@@ -37,7 +35,6 @@ const services = [
   {
     icon: Settings2,
     title: 'Custom Web Solutions',
-    price: 'From $155 / N$2,504.58 per module',
     desc: "When a standard website isn't enough, I can develop custom functionality designed around your specific requirements.",
     idealFor: ['HR Management', 'Appointment Management', 'Customer & Invoice Management', 'Dashboards & Analytics', 'School Management', 'Restaurant Management', 'Other Custom Solutions'],
     includes: [
@@ -81,7 +78,6 @@ export default function ServicesPage() {
                       <s.icon className="w-5 h-5 text-primary" />
                     </div>
                     <CardTitle className="text-xl text-slate-900">{s.title}</CardTitle>
-                    <p className="text-sm font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mt-1">{s.price}</p>
                   </CardHeader>
                   <CardContent className="space-y-5">
                     <p className="text-sm text-slate-600 leading-relaxed">{s.desc}</p>

@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import ServicesPreview from '../components/ServicesPreview';
 import PortfolioPreview from '../components/PortfolioPreview';
 import ProcessPreview from '../components/ProcessPreview';
-import PricingPreview from '../components/PricingPreview';
 import MaintenancePreview from '../components/MaintenancePreview';
 import CtaBanner from '../components/CtaBanner';
 import Footer from '../components/Footer';
@@ -23,7 +22,6 @@ export default function HomePage() {
         <ServicesPreview />
         <PortfolioPreview />
         <ProcessPreview />
-        <PricingPreview />
         <MaintenancePreview />
         <CtaBanner />
       </main>

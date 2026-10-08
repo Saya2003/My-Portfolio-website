@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@project/components/ui/button';
 import { useRef } from 'react';
 import { useIsMobile } from '../hooks/useParallax';
+import SectionHeader from './SectionHeader';
 
 const steps = [
   { num: '01', title: 'Discover', desc: 'We discuss your idea and goals.' },
@@ -22,29 +23,19 @@ export default function ProcessPreview() {
   const shift = useTransform(scrollYProgress, [0, 1], [isMobile ? -15 : -50, isMobile ? 15 : 50]);
 
   return (
-    <section ref={ref} id="process" className="py-14 md:py-20 relative overflow-hidden dotted-grid bg-white/40">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100/70 text-primary text-xs font-semibold mb-4 border border-pink-200/40">
-            HOW IT WORKS
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">A Simple Process</h2>
-          <p className="text-slate-800 font-medium max-w-2xl mx-auto mt-3">
-            From your first idea to a live website — clear and collaborative.
-          </p>
-        </motion.div>
+    <section ref={ref} id="process" className="section-shell relative overflow-hidden dotted-grid bg-card/30">
+      <div className="site-container relative z-10">
+        <SectionHeader
+          badge="HOW IT WORKS"
+          title="A Simple Process"
+          subtitle="From your first idea to a live website — clear and collaborative."
+        />
 
-        <motion.div style={{ y: shift }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <motion.div style={{ y: shift }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
-              className="relative rounded-2xl border-2 border-purple-700 bg-white/90 backdrop-blur-md p-6 text-center hover:border-primary/40 transition-all duration-300 hover:shadow-lg"
+              className="surface-card relative p-6 text-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

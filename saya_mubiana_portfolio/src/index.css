@@ -97,10 +97,46 @@
 }
 
 @layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-shell {
+    @apply py-16 md:py-24 relative overflow-hidden;
+  }
+
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide border border-primary/15;
+  }
+
+  .section-header-line {
+    @apply h-1 w-16 rounded-full bg-gradient-to-r from-primary to-accent opacity-80;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-shift;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-primary/15 bg-card/80 backdrop-blur-md shadow-sm transition-all duration-300 ease-out hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5;
+  }
+
+  .nav-glass {
+    @apply bg-background/75 backdrop-blur-xl border-b border-border/80 shadow-sm shadow-primary/5;
+  }
+
+  .nav-link {
+    @apply relative inline-block px-3 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+
+  .nav-link-active {
+    @apply text-primary;
+  }
+
   /* Blush pink square dot grid pattern throughout the application */
   .dotted-grid {
-    background-color: #fdf2f5;
-    background-image: radial-gradient(circle, rgba(214, 168, 184, 0.6) 1.5px, transparent 1.5px);
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.12) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
     background-position: 0 0;
   }

@@ -12,7 +12,7 @@ const faqs = [
   { q: 'Do I own my website?', a: 'Yes. Upon full payment, the client receives ownership of the completed website and project-specific source code.' },
   { q: 'Do I need to know how to code?', a: 'No. I handle the technical development process.' },
   { q: 'Do you build websites for international clients?', a: 'Yes. Projects can be completed remotely for both local and international clients.' },
-  { q: 'Do your prices include hosting?', a: 'Basic deployment is included where applicable. Domain registration, premium services and third-party costs are separate unless stated otherwise.' },
+  { q: 'Does my quote include hosting?', a: 'Basic deployment is included where applicable. Domain registration, premium services and third-party costs are separate unless stated otherwise in your quotation.' },
   { q: 'Can I request additional features?', a: 'Yes. Additional functionality can be added for an additional fee after the requirements are reviewed.' },
   { q: 'Can I request changes?', a: 'Yes. Your package includes a defined number of revision rounds.' },
   { q: 'How long does a website take?', a: "The timeline depends on the project's scope, complexity and how quickly the client provides content and feedback." },
@@ -27,7 +27,7 @@ export default function FaqPage() {
     <div className="min-h-screen flex flex-col">
       <PageMeta
         title="FAQ | Saya Mubiana Web Development"
-        description="Frequently asked questions about website ownership, pricing, hosting, timelines and more — answered for clients of Saya Mubiana web development."
+        description="Frequently asked questions about website ownership, hosting, timelines and more — answered for clients of Saya Mubiana web development."
         canonical="https://sayamubianaa.netlify.app/faq"
         jsonLd={[
           {

@@ -8,7 +8,7 @@ import PageHero from '../components/PageHero';
 
 const steps = [
   { num: '01', title: 'DISCOVER', desc: 'We discuss your idea, goals, target users and requirements.' },
-  { num: '02', title: 'PLAN', desc: 'Your project scope, features and pricing are defined before development begins.' },
+  { num: '02', title: 'PLAN', desc: 'Your project scope, features and quote are defined before development begins.' },
   { num: '03', title: 'DEVELOP', desc: 'I design and develop your website or web application according to the agreed requirements.' },
   { num: '04', title: 'REVIEW', desc: 'You receive an opportunity to review the completed project and provide your included revisions.' },
   { num: '05', title: 'FINALISE', desc: 'The agreed changes are implemented and the website is prepared for final handover.' },

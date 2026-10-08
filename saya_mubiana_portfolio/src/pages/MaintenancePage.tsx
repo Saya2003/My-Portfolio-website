@@ -197,8 +197,8 @@ const notIncluded = [
 const rules = [
   'Maintenance is for an existing website.',
   'The maintenance service begins after the website has been completed/launched and the client has subscribed to a maintenance plan.',
-  'The N$1,500 Standard plan is intended for simple portfolio and standard business websites.',
-  'The Advanced plan starts from N$2,500/month because the final price depends on the complexity of the application.',
+  'The Standard plan is intended for simple portfolio and standard business websites.',
+  'The Advanced plan is for more complex applications; the scope and quote depend on the complexity of the system.',
   'New features are NOT automatically included in maintenance.',
   'Major development work requires a separate quotation.',
   'Domain, hosting, email and third-party service costs are NOT included unless specifically stated in a separate agreement.',
@@ -246,7 +246,6 @@ function FeatureCategory({ title, items, isOpen, onToggle }: { title: string; it
 /* ─── Package Card ─── */
 function PackageCard({
   title,
-  price,
   description,
   categories,
   note,
@@ -254,7 +253,6 @@ function PackageCard({
   standardNote,
 }: {
   title: string;
-  price: string;
   description: string;
   categories: typeof standardCategories;
   note: string;
@@ -291,8 +289,7 @@ function PackageCard({
 
         <CardHeader className="text-center p-0 mb-4">
           <CardTitle className="text-xl font-bold text-slate-900">{title}</CardTitle>
-          <p className="text-3xl font-extrabold mt-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{price}</p>
-          <p className="text-xs text-slate-500 font-semibold mt-1">Monthly recurring service</p>
+          <p className="text-xs text-slate-500 font-semibold mt-2">Monthly recurring service — contact for a quote</p>
         </CardHeader>
 
         <p className="text-sm text-slate-900 font-semibold text-center leading-relaxed mt-2">{description}</p>
@@ -406,11 +403,9 @@ export default function MaintenancePage() {
             </p>
           </motion.div>
 
-          {/* Pricing Cards */}
           <div className="grid lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
             <PackageCard
               title="Standard Website Maintenance"
-              price="N$1,500 / month"
               description="Best for portfolio websites and standard business websites that mainly provide information about the person, company, services, products or contact details."
               standardNote="Standard Website Maintenance is designed for simple portfolio websites and standard business websites. It helps keep your website working properly, secure, updated and available to your visitors. I take care of routine technical checks and minor website updates so you can focus on your work while I take care of the technical side."
               categories={standardCategories}
@@ -418,7 +413,6 @@ export default function MaintenancePage() {
             />
             <PackageCard
               title="Advanced Website Maintenance"
-              price="From N$2,500 / month"
               description="Best for websites and web applications that use databases, authentication, admin dashboards, backend systems or other advanced functionality."
               standardNote="Advanced Website Maintenance is designed for websites and web applications that have more technical functionality. This may include databases, user accounts, authentication, admin dashboards, backend services, forms, APIs and other systems. In addition to the standard maintenance services, I provide additional technical checks and support for these more advanced systems."
               categories={[...standardCategories, ...advancedExtraCategories]}
@@ -464,13 +458,15 @@ export default function MaintenancePage() {
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="bg-slate-50/60 rounded-xl p-5 border border-slate-100">
                 <p className="font-bold text-sm text-slate-900">Standard Maintenance</p>
-                <p className="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mt-2">N$1,500 / month</p>
-                <p className="text-xs text-slate-600 font-semibold mt-2">Monthly recurring service</p>
+                <p className="text-sm text-slate-700 font-semibold mt-2 leading-relaxed">
+                  Ongoing care for portfolio and standard business websites.
+                </p>
               </div>
               <div className="bg-slate-50/60 rounded-xl p-5 border border-slate-100">
                 <p className="font-bold text-sm text-slate-900">Advanced Maintenance</p>
-                <p className="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mt-2">From N$2,500 / month</p>
-                <p className="text-xs text-slate-600 font-semibold mt-2">Monthly recurring service</p>
+                <p className="text-sm text-slate-700 font-semibold mt-2 leading-relaxed">
+                  Additional technical support for apps with databases, auth and backend systems.
+                </p>
               </div>
             </div>
             <p className="text-sm text-slate-900 font-semibold leading-relaxed mt-5 text-center">

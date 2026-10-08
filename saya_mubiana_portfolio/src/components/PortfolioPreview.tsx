@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { useIsMobile } from '../hooks/useParallax';
+import SectionHeader from './SectionHeader';
 
 const portfolioSites = [
   { title: 'Lindah Mulisa', type: 'Portfolio Website', url: 'https://lindahmulisa.netlify.app' },
@@ -29,25 +30,18 @@ export default function PortfolioPreview() {
   const allSites = [...portfolioSites, ...businessSites].reverse().slice(0, 4);
 
   return (
-    <section ref={ref} id="portfolio-preview" className="py-12 md:py-16 dotted-grid">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3 text-slate-900">My Work</h2>
-        </motion.div>
+    <section ref={ref} id="portfolio-preview" className="section-shell dotted-grid">
+      <div className="site-container">
+        <SectionHeader badge="PORTFOLIO" title="My Work" subtitle="A selection of websites I've designed and built for clients." />
 
-        <motion.div style={{ y: shift }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div style={{ y: shift }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {allSites.map((site, i) => (
             <motion.a
               key={site.url}
               href={site.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-2xl border border-border/80 bg-card/70 backdrop-blur-sm overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10"
+              className="group surface-card block overflow-hidden rounded-2xl p-0 hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

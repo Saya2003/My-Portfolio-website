@@ -6,40 +6,58 @@ interface PageHeroProps {
   subtitle?: string;
 }
 
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
 export default function PageHero({ badge, title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative pt-28 pb-10 md:pt-36 md:pb-14 overflow-hidden dotted-grid">
+    <section className="relative pt-28 pb-10 md:pt-32 md:pb-14 overflow-hidden dotted-grid">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-32 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-32 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-primary/5 via-accent/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="site-container relative z-10">
         <motion.div
           className="text-center max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: easeOut }}
         >
           {badge && (
             <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100/70 text-primary text-xs font-semibold mb-5 border border-pink-200/40"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="section-badge mb-5"
             >
               {badge}
             </motion.span>
           )}
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
+          <motion.h1
+            className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.55, ease: easeOut }}
+          >
             {title}
-          </h1>
+          </motion.h1>
           {subtitle && (
-            <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed">
+            <motion.p
+              className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.32, duration: 0.5 }}
+            >
               {subtitle}
-            </p>
+            </motion.p>
           )}
+          <motion.div
+            className="section-header-line mx-auto mt-6"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5, ease: easeOut }}
+            aria-hidden
+          />
         </motion.div>
       </div>
     </section>
