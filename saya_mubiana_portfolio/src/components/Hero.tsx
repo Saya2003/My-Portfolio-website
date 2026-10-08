@@ -1,5 +1,5 @@
 import { Button } from '@project/components/ui/button';
-import { ArrowRight, ChevronDown, Code2 } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
@@ -78,16 +78,6 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: easeOut }}
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md"
-              >
-                <Code2 className="h-3.5 w-3.5" />
-                PROFESSIONAL WEB DEVELOPMENT
-              </motion.div>
-
               <h1 className="mb-6 max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-tight text-white md:text-5xl lg:text-6xl">
                 Building professional websites &{' '}
                 <span className="bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
