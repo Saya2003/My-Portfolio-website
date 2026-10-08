@@ -62,7 +62,7 @@ export default function Hero() {
           <motion.div className="absolute inset-0" style={{ opacity: overlayOpacity }}>
             <div className="absolute inset-0 bg-black/25" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10 lg:via-black/25 lg:to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
           </motion.div>
         </div>
 

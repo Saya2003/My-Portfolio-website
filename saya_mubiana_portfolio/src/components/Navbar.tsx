@@ -43,7 +43,9 @@ function NavItem({
     >
       {label}
       <span
-        className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-300 origin-center ${
+        className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full transition-all duration-300 origin-center ${
+          overHero ? 'bg-white' : 'bg-gradient-to-r from-primary to-accent'
+        } ${
           active ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-70'
         }`}
       />
@@ -88,11 +90,15 @@ export default function Navbar() {
       initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 140, damping: 22, delay: 0.05 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background,box-shadow,border-color] duration-500 ${
-        scrolled || open ? 'nav-glass' : overHero ? 'bg-black/15 backdrop-blur-[2px] border-b border-white/10' : 'bg-transparent border-b border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background,box-shadow,border-color,backdrop-filter] duration-500 ${
+        open ? 'nav-glass' : overHero ? 'nav-over-hero' : scrolled ? 'nav-glass' : 'nav-over-hero'
       }`}
     >
-      <nav className="site-container h-16 lg:h-[4.25rem] grid grid-cols-[1fr_auto] lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3">
+      <nav
+        className={`site-container h-16 lg:h-[4.25rem] grid grid-cols-[1fr_auto] lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 ${
+          overHero && !open ? 'nav-over-hero-text' : ''
+        }`}
+      >
         <Link
           to="/"
           onClick={() => {
@@ -144,7 +150,7 @@ export default function Navbar() {
           <motion.button
             type="button"
             className={`lg:hidden relative p-2 rounded-xl transition-colors ${
-              overHero ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-primary/10'
+              overHero && !open ? 'text-white hover:bg-white/10' : 'text-foreground hover:bg-primary/10'
             }`}
             onClick={() => setOpen(!open)}
             whileTap={{ scale: 0.92 }}
